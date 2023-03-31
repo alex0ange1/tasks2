@@ -6,13 +6,21 @@ int fib(int n) {
     else if (n == 2)
         return 1;
     else {
-        return fib(n-1) + fib(n-2);
+        int prev1 = 0;
+        int prev2 = 1;
+        int result = 0;
+        for (int i = 2; i <= n; i++) {
+	    std::cout << result << std::endl;
+            result = prev1 + prev2;
+            prev1 = prev2;
+            prev2 = result;
+        }
     }
 }
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    std::cout << fib(10) << std::endl;
+    fib(10);
     return 0;
     
 }
